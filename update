@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# Set bash to quit if errors found.
+set -e
+
+update() {
+
+echo "Starting full system update..."
+sudo apt update -y
+sudo apt upgrade -y
+sudo apt dist-upgrade -y
+
+}
+
+
+leave() {
+echo "================================"
+echo "=== Update & Clean Complete ===="
+echo "================================"
+exit
+
+}
+
+clean() {
+  sudo apt-get autoremove
+}
+
+echo "============================================"
+echo "A little update script to make things easier"
+echo "============================================"
+
+
+update
+clean
+leave
